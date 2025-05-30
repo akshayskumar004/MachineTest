@@ -1,0 +1,98 @@
+@use "../styles/mixins" as *;
+@use "../styles/variables" as *;
+
+.wrapper {
+  @include flexbox(flex, space-between, center);
+  height: 100vh;
+}
+
+.container-wrapper {
+  @include flexbox(flex, space-between, center);
+}
+
+.form-container {
+  max-width: 304px !important;
+  .title {
+    @include font-style(700, $primary-color, 32px, 42px);
+  }
+  .new-user {
+    @include font-style(700, $primary-color, 16px);
+    a {
+      @include font-style(600, $link-color, 16px, 100%);
+      text-decoration: none;
+    }
+  }
+  .form-control {
+    @include border();
+    height: 48px;
+    padding: 0.5rem 0.75rem;
+    &::placeholder {
+      @include font-style(600, $border-color, 16px, 100%);
+    }
+  }
+  .form-floating {
+    .form-control {
+      min-height: 48px;
+      height: 48px;
+      padding-top: 1.25rem;
+      padding-bottom: 0.25rem;
+    }
+    label {
+      padding: 0.75rem 0.75rem;
+      @include font-style(600, $border-color, 16px, 100%);
+    }
+  }
+  .custom-checkbox {
+    @include flexbox(flex, flex-start, center, 10px);
+    .form-check-input {
+      width: 32px;
+      height: 32px;
+      @include border();
+      &:focus {
+        border-color: $black;
+        box-shadow: none;
+      }
+    }
+    .form-check-label {
+      @include font-style(600, $border-color, 16px, 100%);
+    }
+  }
+  .signin-btn {
+    width: 100%;
+    height: 48px;
+    background: $btn-color;
+    border-radius: 0px;
+    @include border();
+  }
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 280px;
+  @include font-style(700, $primary-color, 13px, 19px);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1;
+    border-bottom: 2px solid $bar-color;
+    margin: 0 10px;
+  }
+}
+
+.icons-wrapper {
+  @include flexbox(flex, space-around, center, 10px);
+  .icon {
+    width: 48px;
+    height: 48px;
+  }
+}
+.banner {
+  max-width: 300px !important;
+  .banner-icon {
+    width: 300px;
+    height: 510px;
+  }
+}

@@ -1,0 +1,28 @@
+@use "./variables" as *;
+
+@mixin flexbox($display: flex, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: $display;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin font-style(
+  $weight: 400,
+  $color: $primary-color,
+  $size: 16px,
+  $lineHeight: 26px,
+  $style: normal
+) {
+  font-family: "Noto Sans", sans-serif;
+  color: $color;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $lineHeight;
+  font-style: $style;
+}
+
+@mixin border($width: 2px, $style: solid, $color: $border-color, $radius: 0px) {
+  border: $width $style $color;
+  border-radius: $radius;
+}

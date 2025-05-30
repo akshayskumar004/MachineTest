@@ -1,0 +1,16 @@
+@use "../styles/mixins" as *;
+@use "../styles/variables" as *;
+
+.tab-active {
+  @include font-style(600, $primary-color, 16px, 100%);
+  border-bottom: 2px solid $border-color;
+}
+
+.tab-inactive {
+  color: $not-active-color !important;
+  @include font-style(600, $primary-color, 16px, 100%);
+}
+
+.title {
+  @include font-style(700, $primary-color, 24px, 34px);
+}

@@ -1,0 +1,7 @@
+@use "./styles/mixins" as *;
+@use "./styles/variables" as *;
+
+.wrapper {
+  @include flexbox(flex, space-between, center);
+  height: 100vh;
+}
