@@ -7,6 +7,7 @@ import { CountryCard } from "../components/CountryCard";
 import { Col, Row } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
 import { Copyright } from "../components/Copyright";
+import Carousel from "../components/Caurosal";
 
 function Home() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -28,7 +29,9 @@ function Home() {
   return (
     <div className="home-wrapper">
       <TopNav onSelectRegion={selectRegion} />
-      <h2 class="section-title">WELCOME</h2>
+      <h2 className="section-title">WELCOME</h2>
+      <Carousel countries={list} />
+      <div></div>
       <Row className="g-4 justify-content-center country-wrapper">
         {list.slice(0, visibleCount).map((country) => (
           <Col
