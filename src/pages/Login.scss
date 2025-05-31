@@ -6,7 +6,6 @@
   height: 100vh;
   padding: 0 200px;
 
-  // ✅ Responsive: stack items vertically on smaller screens
   @media (max-width: 768px) {
     flex-direction: column;
     padding: 1rem;
@@ -17,7 +16,6 @@
 .container-wrapper {
   @include flexbox(flex, space-between, center);
 
-  // ✅ Responsive: stack form and banner vertically
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
@@ -30,7 +28,6 @@
 .form-container {
   max-width: 304px !important;
 
-  // ✅ Responsive: full width on small screens
   @media (max-width: 768px) {
     max-width: 280px !important;
     width: 100%;
@@ -43,7 +40,6 @@
   .title {
     @include font-style(700, $primary-color, 32px, 42px);
 
-    // ✅ Responsive font size
     @media (max-width: 480px) {
       font-size: 24px;
     }
@@ -66,7 +62,6 @@
       @include font-style(600, $border-color, 16px, 100%);
     }
 
-    // ✅ Reduced height on very small screens
     @media (max-width: 480px) {
       height: 40px;
     }
@@ -80,7 +75,6 @@
       padding-top: 1.25rem;
       padding-bottom: 0.25rem;
 
-      // ✅ Reduced height for floating inputs
       @media (max-width: 480px) {
         height: 40px;
       }
@@ -127,7 +121,6 @@
     border-radius: 0px;
     @include border();
 
-    // ✅ Smaller button height on small screens
     @media (max-width: 480px) {
       height: 40px;
     }
@@ -149,7 +142,6 @@
     margin: 0 10px;
   }
 
-  // // ✅ Smaller text for separators
   @media (max-width: 480px) {
     margin-left: 20px;
   }
@@ -162,7 +154,6 @@
     width: 48px;
     height: 48px;
 
-    // ✅ Shrink social icons for small devices
     @media (max-width: 480px) {
       width: 40px;
       height: 40px;
@@ -179,7 +170,6 @@
     object-fit: contain;
   }
 
-  // ✅ Hide banner completely on mobile
   @media (max-width: 768px) {
     display: none !important;
   }

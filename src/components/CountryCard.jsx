@@ -2,8 +2,6 @@ import { Card, Col, Row } from "react-bootstrap";
 import "./CountryCard.scss";
 
 export const CountryCard = ({ country }) => {
-  console.log(country, "country");
-
   return (
     <Card className="card-wrapper">
       <Card.Body>
