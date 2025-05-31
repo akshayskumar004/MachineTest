@@ -6,6 +6,7 @@ import { TopNav } from "../components/TopNav";
 import { CountryCard } from "../components/CountryCard";
 import { Col, Row } from "react-bootstrap";
 import { useMediaQuery } from "react-responsive";
+import { Copyright } from "../components/Copyright";
 
 function Home() {
   const isMobile = useMediaQuery({ maxWidth: 767 });
@@ -18,22 +19,37 @@ function Home() {
   useEffect(() => {
     dispatch(fetchCountries(region));
     setVisibleCount(baseVisibleCount);
-  }, [baseVisibleCount, dispatch, region]);
+  }, [dispatch, region, baseVisibleCount]);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prev) => prev + baseVisibleCount);
+  };
 
   return (
-    <div>
+    <div className="home-wrapper">
       <TopNav onSelectRegion={selectRegion} />
+      <h2 class="section-title">WELCOME</h2>
       <Row className="g-4 justify-content-center country-wrapper">
-        {list.map((country) => (
+        {list.slice(0, visibleCount).map((country) => (
           <Col
             key={country.name}
             md={6}
+            xs={12}
             className="d-flex justify-content-center"
           >
             <CountryCard country={country} />
           </Col>
         ))}
       </Row>
+      {visibleCount < list.length && (
+        <div className="load-more-btn-wrapper">
+          <button className="load-more-btn" onClick={handleLoadMore}>
+            Load More
+          </button>
+        </div>
+      )}
+
+      <Copyright />
     </div>
   );
 }

@@ -1,0 +1,26 @@
+@use "../styles/mixins" as *;
+@use "../styles/variables" as *;
+
+.footer {
+  text-align: center;
+  padding: 4rem 1rem;
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+    .icon {
+      width: 48px;
+      height: 48px;
+    }
+  }
+}
+
+.email {
+  @include font-style(700, $primary-color, 13px, 19px);
+}
+
+.copyright {
+  @include font-style(700, $primary-color, 13px, 19px);
+}
