@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import { Button, Col, Container, Form, Row, Stack } from "react-bootstrap";
 import "./Login.scss";
 import loginImg from "../assets/images/loginImg.png";
@@ -16,7 +17,6 @@ export default function Login() {
 
   const validatePassword = (password) => {
     const regex =
-      // eslint-disable-next-line no-useless-escape
       /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]).{8,}$/;
     return regex.test(password);
   };
@@ -25,8 +25,6 @@ export default function Login() {
     e.preventDefault();
     if (!email.length) {
       setError("Please enter email address.");
-      console.log(error);
-
       return;
     }
     if (!validatePassword(password)) {
@@ -39,13 +37,14 @@ export default function Login() {
     setError("");
     navigate("/home");
   };
+
   return (
     <div className="wrapper">
       <Container>
         <Row className="container-wrapper">
-          <Col className="form-container">
+          <Col xs={12} md={6} className="form-container">
             <Form onSubmit={handleSubmit}>
-              <Stack gap={2}>
+              <Stack gap={2} className="stack">
                 <h1 className="title">Sign In</h1>
                 <h3 className="new-user">
                   New user? <a href="#">Create an account</a>
@@ -91,15 +90,17 @@ export default function Login() {
                 <span>Or Sign In With</span>
               </div>
               <div className="icons-wrapper mb-2">
-                <img src={googleImg} className="icon" alt="" />
-                <img src={facebookImg} className="icon" alt="" />
-                <img src={linkdInImg} className="icon" alt="" />
-                <img src={twitterImg} className="icon" alt="" />
+                <img src={googleImg} className="icon" alt="Google" />
+                <img src={facebookImg} className="icon" alt="Facebook" />
+                <img src={linkdInImg} className="icon" alt="LinkedIn" />
+                <img src={twitterImg} className="icon" alt="Twitter" />
               </div>
             </Form>
           </Col>
-          <Col className="banner">
-            <img className="banner-icon" src={loginImg} alt="" />
+
+          {/* This column is hidden on small screens */}
+          <Col md={6} className="banner d-none d-md-block">
+            <img className="banner-icon" src={loginImg} alt="Banner" />
           </Col>
         </Row>
       </Container>

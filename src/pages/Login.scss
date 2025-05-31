@@ -5,17 +5,50 @@
   @include flexbox(flex, space-between, center);
   height: 100vh;
   padding: 0 200px;
+
+  // ✅ Responsive: stack items vertically on smaller screens
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
 }
 
 .container-wrapper {
   @include flexbox(flex, space-between, center);
+
+  // ✅ Responsive: stack form and banner vertically
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+  }
 }
 
 .form-container {
   max-width: 304px !important;
+
+  // ✅ Responsive: full width on small screens
+  @media (max-width: 768px) {
+    max-width: 280px !important;
+    width: 100%;
+    padding: 0 !important;
+    .stack {
+      align-items: center;
+    }
+  }
+
   .title {
     @include font-style(700, $primary-color, 32px, 42px);
+
+    // ✅ Responsive font size
+    @media (max-width: 480px) {
+      font-size: 24px;
+    }
   }
+
   .new-user {
     @include font-style(700, $primary-color, 16px);
     a {
@@ -23,47 +56,81 @@
       text-decoration: none;
     }
   }
+
   .form-control {
     @include border();
     height: 48px;
     padding: 0.5rem 0.75rem;
+
     &::placeholder {
       @include font-style(600, $border-color, 16px, 100%);
     }
+
+    // ✅ Reduced height on very small screens
+    @media (max-width: 480px) {
+      height: 40px;
+    }
   }
+
   .form-floating {
     .form-control {
       min-height: 48px;
+      min-width: 280px;
       height: 48px;
       padding-top: 1.25rem;
       padding-bottom: 0.25rem;
+
+      // ✅ Reduced height for floating inputs
+      @media (max-width: 480px) {
+        height: 40px;
+      }
     }
+
     label {
       padding: 0.75rem 0.75rem;
       @include font-style(600, $border-color, 16px, 100%);
     }
   }
+
   .custom-checkbox {
     @include flexbox(flex, flex-start, center, 10px);
+    @media (max-width: 480px) {
+      min-width: 280px;
+      margin-right: 0;
+    }
+
     .form-check-input {
       width: 32px;
       height: 32px;
       @include border();
+
       &:focus {
         border-color: $black;
         box-shadow: none;
       }
+
+      @media (max-width: 480px) {
+        width: 24px;
+        height: 24px;
+      }
     }
+
     .form-check-label {
       @include font-style(600, $border-color, 16px, 100%);
     }
   }
+
   .signin-btn {
     width: 100%;
     height: 48px;
     background: $btn-color;
     border-radius: 0px;
     @include border();
+
+    // ✅ Smaller button height on small screens
+    @media (max-width: 480px) {
+      height: 40px;
+    }
   }
 }
 
@@ -81,19 +148,39 @@
     border-bottom: 2px solid $bar-color;
     margin: 0 10px;
   }
+
+  // // ✅ Smaller text for separators
+  @media (max-width: 480px) {
+    margin-left: 20px;
+  }
 }
 
 .icons-wrapper {
   @include flexbox(flex, space-around, center, 10px);
+
   .icon {
     width: 48px;
     height: 48px;
+
+    // ✅ Shrink social icons for small devices
+    @media (max-width: 480px) {
+      width: 40px;
+      height: 40px;
+    }
   }
 }
+
 .banner {
   max-width: 300px !important;
+
   .banner-icon {
     width: 300px;
     height: 510px;
+    object-fit: contain;
+  }
+
+  // ✅ Hide banner completely on mobile
+  @media (max-width: 768px) {
+    display: none !important;
   }
 }
